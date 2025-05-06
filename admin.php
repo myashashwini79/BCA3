@@ -1,9 +1,28 @@
 <?php
 session_start();
+require_once "config.php";
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
     header("Location: login.php");
     exit();
 }
+
+// Approve/Reject Logic
+if (isset($_GET['action'], $_GET['id'])) {
+    $leave_id = intval($_GET['id']);
+    $status = ($_GET['action'] === 'approve') ? 'Approved' : 'Rejected';
+
+    $stmt = $conn->prepare("UPDATE leaves SET status = ? WHERE id = ?");
+    $stmt->bind_param("si", $status, $leave_id);
+    if ($stmt->execute()) {
+        header("Location: manage_leaves.php");
+        exit();
+    }
+    $stmt->close();
+}
+
+$sql = "SELECT l.*, u.username FROM leaves l JOIN users u ON l.user_id = u.id ORDER BY l.created_at DESC";
+$leaves = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
