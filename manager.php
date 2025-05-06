@@ -196,6 +196,10 @@ $username = htmlspecialchars($_SESSION['username']);
             <i data-lucide="bar-chart-2" class="icon"></i>
             View Reports
         </a>
+        <a href="admin_appraisal.php">
+            <i data-lucide="file-plus" class="icon"></i>
+             Add Appraisal
+        </a>
         <a href="settings.php">
             <i data-lucide="settings" class="icon"></i>
             Settings
