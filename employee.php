@@ -253,6 +253,11 @@ $profileImage = 'x1.jpg'; // Update if dynamic
                 <h4>Account Settings</h4>
                 <p>Manage your profile</p>
             </a>
+            <a href="emp_appraisal.php" class="card">
+                <i class="fa-solid fa-award"></i>
+                <h4>Appraisal</h4>
+                <p>Check your appraisal score</p>
+            </a>
             <a href="payroll.php" class="card">
                 <i class="fa-solid fa-money-check-dollar"></i>
                 <h4>Salary</h4>
